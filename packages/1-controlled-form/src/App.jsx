@@ -1,19 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+import ControlledForm from "./components/controlled-form";
+import UnControlledForm from "./components/uncontrolled-form";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      ControlledForm: <ControlledForm />
+      UnControlledForm: <UnControlledForm />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
