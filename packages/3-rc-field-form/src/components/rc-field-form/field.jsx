@@ -1,5 +1,5 @@
 import { cloneElement, useContext, useReducer, useLayoutEffect } from "react";
-import FieldContext from "./FieldContext";
+import FieldContext from "./field-context";
 
 export default function Field(props) {
   const { children, name } = props;
@@ -9,6 +9,7 @@ export default function Field(props) {
 
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
+  // 立即订阅
   useLayoutEffect(() => {
     const unregister = registerFieldEntities({
       props,

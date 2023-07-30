@@ -1,36 +1,34 @@
 import React, { useEffect } from "react";
-import Form, { Field } from "../components/my-rc-field-form/";
-import Input from "../components/Input";
+import Form, { Field } from "../components/rc-field-form/index";
 
 const nameRules = { required: true, message: "请输入姓名！" };
 const passworRules = { required: true, message: "请输入密码！" };
 
-export default function MyRCFieldForm(props) {
+export default function RCFieldForm(props) {
   const [form] = Form.useForm();
 
   const onFinish = (val) => {
-    console.log("onFinish", val); //sy-log
+    console.log("onFinish", val);
   };
 
   // 表单校验失败执行
   const onFinishFailed = (val) => {
-    console.log("onFinishFailed", val); //sy-log
+    console.log("onFinishFailed", val);
   };
 
   useEffect(() => {
-    console.log("form", form); //sy-log
-    form.setFieldsValue({ username: "default" });
+    form.setFieldsValue({ username: "test" });
   }, []);
 
   return (
     <div>
-      <h3>MyRCFieldForm</h3>
+      <h3>RCFieldForm</h3>
       <Form form={form} onFinish={onFinish} onFinishFailed={onFinishFailed}>
         <Field name="username" rules={[nameRules]}>
-          <Input placeholder="input UR Username" />
+          <input placeholder="input UR Username" />
         </Field>
         <Field name="password" rules={[passworRules]}>
-          <Input placeholder="input UR Password" />
+          <input placeholder="input UR Password" />
         </Field>
         <button>Submit</button>
       </Form>

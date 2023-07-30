@@ -1,6 +1,6 @@
 import { useImperativeHandle } from "react";
 import FieldContext from "./field-context";
-import useForm from "./useForm";
+import useForm from "./use-form";
 
 export default function Form(props, ref) {
   const { children, form, onFinish, onFinishFailed } = props;

@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev0": "pnpm --filter 0 dev",
-    "dev1": "pnpm --filter 1 dev",
-    "dev2": "pnpm --filter 2 dev"
+    "dev": "node dev.js"
   },
   "keywords": [],
   "author": "",

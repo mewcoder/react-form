@@ -19,7 +19,7 @@ export default class Field extends React.Component {
     const { getFieldValue, setFieldsValue } = this.context;
     const { name } = this.props;
     return {
-      value: getFieldValue(name), //"omg", // get state
+      value: getFieldValue(name),  // get state
       onChange: (e) => {
         const newValue = e.target.value;
         // set state
