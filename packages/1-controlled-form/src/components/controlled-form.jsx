@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default class ControlledForm extends React.Component {
+function ControlledForm() {
+  const [name, setName] = useState("");
+
+  const handleChange = (event) => {
+    setName(event.target.name);
+  };
+
+  const handleSubmit = (event) => {
+    alert("A name was submitted: " + name);
+    event.preventDefault();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={name} onChange={handleChange} />
+      </label>
+      <input type="submit" name="Submit" />
+    </form>
+  );
+}
+
+// class component
+class ControlledFormClass extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: "" };
   }
 
   handleChange = (event) => {
-    this.setState({ name: event.target.value });
+    this.setState({ name: event.target.name });
   };
 
-  handleSubmit = (event) => {    
+  handleSubmit = (event) => {
     alert("A name was submitted: " + this.state.name);
     event.preventDefault();
   };
@@ -22,12 +46,14 @@ export default class ControlledForm extends React.Component {
           Name:
           <input
             type="text"
-            value={this.state.value}
+            name={this.state.name}
             onChange={this.handleChange}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" name="Submit" />
       </form>
     );
   }
 }
+
+export default ControlledForm;

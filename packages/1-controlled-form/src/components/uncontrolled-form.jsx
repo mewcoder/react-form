@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 
-export default class UnControlledForm extends React.Component {
+function UncontrolledForm() {
+  const input = useRef();
+
+  const handleSubmit = (event) => {
+    alert("A name was submitted: " + input.current.value);
+    event.preventDefault();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" ref={input} />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  );
+}
+
+class UnControlledFormClass extends React.Component {
   constructor(props) {
     super(props);
     this.input = React.createRef();
@@ -23,3 +42,5 @@ export default class UnControlledForm extends React.Component {
     );
   }
 }
+
+export default UncontrolledForm;
